@@ -332,3 +332,21 @@ def str2int(str_lst):
 
     # print(*final_list, sep="\n")
     return final_list
+
+
+def str2float(str_lst):
+    """Convert string into int
+
+    :param str_lst:
+    :return:
+    """
+    final_list = []
+    for each in str_lst:
+        # print(each)
+        each_split = each.split(",")
+        temp_list = list(map(float, each_split[:]))
+        # temp_list.append(each_split[-1])
+        final_list.append(tuple(temp_list))
+
+    # print(*final_list, sep="\n")
+    return final_list

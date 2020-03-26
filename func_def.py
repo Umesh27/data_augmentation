@@ -1,7 +1,7 @@
 
 import cv2
 import numpy as np
-from helper import *
+from Utility.helper import *
 import random
 
 
@@ -103,6 +103,8 @@ class HorizontalFlip(object):
             img_center = np.hstack((img_center, img_center))
 
             img = img[:, ::-1, :]
+            # print(bboxes)
+            # print(img_center)
             bboxes[:, [0, 2]] += 2*(img_center[[0, 2]] - bboxes[:, [0, 2]])
 
             box_w = abs(bboxes[:, 0] - bboxes[:, 2])
@@ -229,7 +231,7 @@ class Rotate(object):
         for i in range(self.num_count):
             # angle = self.angle
             angle = int(random.random()*100)
-            print(angle)
+            # print(angle)
 
             w, h = img.shape[1], img.shape[0]
             cx, cy = w // 2, h // 2
